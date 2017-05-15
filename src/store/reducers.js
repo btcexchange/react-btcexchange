@@ -1,9 +1,15 @@
 import { combineReducers } from 'redux'
+import { modelReducer, formReducer } from 'react-redux-form'
+
 import locationReducer from './location'
+import sessionReducer from './session'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     location: locationReducer,
+    authen: modelReducer('authen'),
+    authenForm: formReducer('authen'),
+    session: sessionReducer,
     ...asyncReducers
   })
 }
